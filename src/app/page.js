@@ -1,6 +1,7 @@
 'use client'
 import React from "react";
 import { HiArrowRight } from "react-icons/hi2";
+import Image from 'next/image';
 
 const page = () => {
 
@@ -34,6 +35,11 @@ const page = () => {
 
         {/* Content */}
         <div className="relative px-4 md:px-[15vw] lg:px-[25vw] py-[15vh] md:py-[20vh] lg:py-[25vh] z-10">
+          <div className="py-8">
+            <Image  src="/capecadvisory_logo.jpg" alt="Logo" width={100} height={100}
+              />
+            <p className="text-[18px] font-inter">CapeC.</p>
+          </div>
           <p className="text-[#fff] font-inter text-sm md:text-base">
             SOS Children&apos;s Villages Bangladesh and BESTSELLER Foundation.
           </p>
