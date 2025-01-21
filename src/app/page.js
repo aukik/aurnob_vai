@@ -1,7 +1,29 @@
+'use client'
 import React from "react";
 import { HiArrowRight } from "react-icons/hi2";
 
 const page = () => {
+
+    // Function to handle PDF download
+    const handleDownloadPDF = () => {
+      // Update path to match your PDF file in the public folder
+      const pdfUrl = "pdf_download.pdf";  // Note the forward slash at the start
+
+      // Create an anchor element
+      const link = document.createElement("a");
+      link.href = pdfUrl;
+      link.setAttribute('target', '_blank'); // Opens in new tab
+      link.download = "pdf_download.pdf";
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    };
+
+    // Function to visit LinkedIn
+    const visitLinkedIn = () => {
+      // Replace this URL with your actual LinkedIn profile/company page URL
+      window.open("https://www.linkedin.com/company/capecadvisory", "_blank");
+    };
   return (
     <div className="relative">
       {/* Background Section */}
@@ -24,13 +46,19 @@ const page = () => {
           </p>
 
           <div className="flex flex-col md:flex-row gap-4 md:gap-10">
-            <button className="bg-none text-[#fff] border border-white px-4 md:px-6 py-2 md:py-3 font-inter text-sm md:text-base">
-              Learn More
-            </button>
-            <button className="flex items-center gap-2 text-white font-inter text-sm md:text-base">
-              Explore Projects
-              <HiArrowRight className="text-lg md:text-xl" />
-            </button>
+          <button
+          onClick={handleDownloadPDF}
+          className="bg-none text-[#fff] border border-white px-4 md:px-6 py-2 md:py-3 font-inter text-sm md:text-base hover:bg-white hover:text-black transition-colors"
+        >
+          Download PDF
+        </button>
+        <button
+          onClick={visitLinkedIn}
+          className="flex items-center gap-2 text-white font-inter text-sm md:text-base hover:text-gray-300 transition-colors"
+        >
+          Visit LinkedIn
+          <HiArrowRight className="text-lg md:text-xl" />
+        </button>
           </div>
         </div>
       </div>
